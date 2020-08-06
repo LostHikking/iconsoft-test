@@ -1,28 +1,33 @@
 package io.github.losthikking.iconsofttest;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import io.github.losthikking.iconsofttest.dto.Message;
+import io.github.losthikking.iconsofttest.net.Client;
+import io.github.losthikking.iconsofttest.net.TcpServer;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServerTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class ServerTest {
 
 
 	@Test
-	public void testServer() throws InterruptedException {
+	void testServer() throws InterruptedException {
 		List<Message> testList = new ArrayList<>();
 		Message message = new Message("Someone", "Something", System.currentTimeMillis(), false);
 		for (int i = 0; i < 50; i++) {
 			testList.add(message);
 		}
 		System.out.println(testList.size());
-		Server server = new Server();
+		TcpServer server = new TcpServer();
 		Thread serverThread = new Thread(server);
 		serverThread.setName("Server Thread");
 		serverThread.start();
-		Client client = new Client("localhost", server.getPort());
-		Client client1 = new Client("localhost", server.getPort());
+		Client client = new Client("localhost", server.getPort(), "");
+		Client client1 = new Client("localhost", server.getPort(), "");
 		Thread clientThread = new Thread(client);
 		clientThread.setName("Client 1 Thread");
 		clientThread.start();

@@ -1,5 +1,6 @@
-package io.github.losthikking.iconsofttest;
+package io.github.losthikking.iconsofttest.controlers;
 
+import io.github.losthikking.iconsofttest.Chat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,7 @@ public class ChatConnectionController implements Initializable {
 	@FXML
 	private TextField portTextField;
 
-	public void connect(ActionEvent event) throws IOException {
+	public void connect() throws IOException {
 		Window owner = connectButton.getScene().getWindow();
 		String ipAddress = ipAddressTextField.getText();
 		String port = portTextField.getText();

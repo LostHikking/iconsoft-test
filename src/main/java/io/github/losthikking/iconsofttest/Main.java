@@ -1,6 +1,7 @@
 package io.github.losthikking.iconsofttest;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,6 +18,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/main.fxml"));
+		primaryStage.setOnCloseRequest(t -> {
+			Platform.exit();
+			System.exit(0);
+		});
 		primaryStage.setTitle("Chat");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();

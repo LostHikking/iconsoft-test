@@ -1,12 +1,20 @@
-package io.github.losthikking.iconsofttest;
+package io.github.losthikking.iconsofttest.dto;
 
 import java.io.Serializable;
 
 public class Message implements Serializable {
 	private final String sender;
-	private final String text;
+	private String text;
 	private final long time;
-	private final boolean encrypted;
+	private boolean encrypted;
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public void setEncrypted(boolean encrypted) {
+		this.encrypted = encrypted;
+	}
 
 	@Override
 	public boolean equals(Object o) {

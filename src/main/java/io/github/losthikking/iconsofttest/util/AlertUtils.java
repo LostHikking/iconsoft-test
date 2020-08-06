@@ -1,10 +1,10 @@
-package io.github.losthikking.iconsofttest;
+package io.github.losthikking.iconsofttest.util;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 
-public class AlertHelper {
-	private AlertHelper(){}
+public class AlertUtils {
+	private AlertUtils(){}
 
 	public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
 		Alert alert = new Alert(alertType);

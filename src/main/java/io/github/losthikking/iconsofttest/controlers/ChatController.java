@@ -1,5 +1,7 @@
-package io.github.losthikking.iconsofttest;
+package io.github.losthikking.iconsofttest.controlers;
 
+import io.github.losthikking.iconsofttest.Chat;
+import io.github.losthikking.iconsofttest.dto.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,8 +37,6 @@ public class ChatController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		messageInputTextArea.textProperty().addListener((observable, oldValue, newValue) -> {
-			sendButton.setDisable(newValue.isEmpty());
-		});
+		messageInputTextArea.textProperty().addListener((observable, oldValue, newValue) -> sendButton.setDisable(newValue.isEmpty()));
 	}
 }
