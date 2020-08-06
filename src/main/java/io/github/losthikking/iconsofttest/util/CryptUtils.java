@@ -9,10 +9,18 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Утилиты для шифрования
+ */
 public class CryptUtils {
 	private CryptUtils() {
 	}
 
+	/**
+	 * @param text открытый текст
+	 * @param key 128 битный ключ для шифрования
+	 * @return закрытый текст зашифрованный AES
+	 */
 	public static String cryptText(String text, String key) {
 		String encryptedText = null;
 		Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
@@ -31,6 +39,11 @@ public class CryptUtils {
 		return encryptedText;
 	}
 
+	/**
+	 * @param text закрытый текст для расшифровки
+	 * @param key 128 битный ключ, которым был зашифрован этот текст
+	 * @return открытый текст, если ключ совпадает
+	 */
 	public static String decryptText(String text, String key) {
 		String decryptedText = null;
 		try {

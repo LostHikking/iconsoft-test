@@ -2,6 +2,9 @@ package io.github.losthikking.iconsofttest;
 
 import io.github.losthikking.iconsofttest.enums.ConnectionType;
 
+/**
+ * Конфиг для программы
+ */
 public class Config {
 	private static final Config instance = new Config();
 	private String username;

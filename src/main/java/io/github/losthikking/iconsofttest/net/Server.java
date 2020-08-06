@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Сервер, который будет принимать сообщения и отправлять всем клиентам
+ */
 public abstract class Server implements Runnable {
 	private static final Logger LOG = LoggerFactory.getLogger(Server.class);
 	protected final List<ObjectOutputStream> clients = Collections.synchronizedList(new ArrayList<>());

@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Реализация Server на TCP
+ */
 public class TcpServer extends Server {
 	private static final Logger LOG = LoggerFactory.getLogger(TcpServer.class);
 

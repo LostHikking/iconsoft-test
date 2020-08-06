@@ -29,6 +29,7 @@ public class MainController implements Initializable {
 	);
 	@FXML
 	private final Config config = Config.getInstance();
+	
 	@FXML
 	private ChoiceBox<ConnectionType> connectionTypeChoiceBox;
 

@@ -23,6 +23,10 @@ public class Chat {
 		this.messages = client.getMessages();
 	}
 
+	/**
+	 * Создаёт сервер, клиент, подключенный к серверу
+	 * @return чат подключенный к локальному серверу
+	 */
 	public static Chat createChat() {
 		Server server = new TcpServer();
 		Thread serverThread = new Thread(server);
@@ -34,6 +38,11 @@ public class Chat {
 		return chat;
 	}
 
+	/**
+	 * @param ipAddress ip-адресс сервера
+	 * @param port порт сервера
+	 * @return чат, подключенный к серверу
+	 */
 	public static Chat connectToChat(String ipAddress, int port) {
 		Client client = new Client(ipAddress, port, CFG.getEncryptionKey());
 		Thread clientThread = new Thread(client);
@@ -45,6 +54,9 @@ public class Chat {
 	}
 
 
+	/**
+	 * @param text текст для отправки на сервер, который вернётся всем клиентам, подключенным к серверу
+	 */
 	public void sendMessage(String text) {
 		client.sendMessage(new Message(username, text, System.currentTimeMillis(), false));
 	}
